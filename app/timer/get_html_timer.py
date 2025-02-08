@@ -70,11 +70,14 @@ def execute_task(**options):
     #asyncio.run(worker(options))
     result = get_html.delay(options['url'])
     cleaned_html =result.get(timeout=20)
+    print(cleaned_html)
     chat = get_chat()
     results =  chat.send_to_large_model(options['extract_prompt'],cleaned_html)
+    print(results)
     results = re.sub(r'<think>.*?</think>', '', results, flags=re.DOTALL)
     checkResult = chat.check_by_large_model("你是数据检测专家，根据下面检测目标，如果数据符合检测目标要求，则进行<符合要求>，否则返回<数据缺失>",options['verify_prompt'],results)
     checkResult = re.sub(r'<think>.*?</think>', '', checkResult, flags=re.DOTALL)
+    print(checkResult)
     if "符合要求" not in checkResult:
         print("检测结果不符合要求")
         return

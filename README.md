@@ -2,6 +2,7 @@
 
 基于Python的数据采集系统
 
+![webui](img/webui.jpeg)
 ## 功能特性
 
 - 浏览器自动化采集（使用Playwright）- 分布式任务处理（Celery）
