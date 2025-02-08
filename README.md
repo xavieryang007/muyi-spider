@@ -1,6 +1,6 @@
-# News Server
+# Muyi Spider
 
-基于Python的新闻采集系统
+基于Python的数据采集系统
 
 ## 功能特性
 
