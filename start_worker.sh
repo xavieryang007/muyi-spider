@@ -1,0 +1,1 @@
+celery -A worker  worker  --pool=eventlet --loglevel=info
